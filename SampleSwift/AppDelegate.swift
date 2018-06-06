@@ -31,23 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
 //
         
-       let interestingNumbers = [
-            "Prime": [2, 3, 5, 7, 11, 13,17,19,23,29],
-            "Fibonacci": [1, 1, 2, 3, 5, 8],
-            "Square": [1, 4, 9, 16, 25],
-        ]
-        var largest = 0
-        for (kind, numbers) in interestingNumbers {
-              print(numbers)
-            for number in numbers {
-                if number > largest {
-                    largest = number
-                    print(largest)
-                      print(kind)
-                }
-            }
-        }
-        
+     
         return true
            }
 
