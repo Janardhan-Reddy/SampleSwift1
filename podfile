@@ -1,0 +1,7 @@
+platform :ios, '11.0'
+use_frameworks!
+
+target 'SampleSwift' do
+  pod 'FSCalendar'
+ pod 'SwiftyJSON'
+end
