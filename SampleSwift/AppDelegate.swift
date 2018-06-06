@@ -16,8 +16,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+//        let vegetable = "red pepper"
+//        switch vegetable {
+//        case "celery":
+//            print("Add some raisins and make ants on a log.")
+//        case "cucumber", "watercress":
+//            print("That would make a good tea sandwich.")
+//        case let x where x.hasSuffix("pepper"):
+//            print("Is it a spicy \(x)?")
+//        default:
+//            print("Everything tastes good in soup.")
+//        }
+//
+        
+       let interestingNumbers = [
+            "Prime": [2, 3, 5, 7, 11, 13,17,19,23,29],
+            "Fibonacci": [1, 1, 2, 3, 5, 8],
+            "Square": [1, 4, 9, 16, 25],
+        ]
+        var largest = 0
+        for (kind, numbers) in interestingNumbers {
+              print(numbers)
+            for number in numbers {
+                if number > largest {
+                    largest = number
+                    print(largest)
+                      print(kind)
+                }
+            }
+        }
+        
         return true
-    }
+           }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

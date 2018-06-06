@@ -1,0 +1,118 @@
+{
+  "event_1" : {
+    "eventDay" : "Wednesday December 13th",
+    "eventId" : 1,
+    "eventSession" : {
+      "session_1" : {
+        "email" : "sdichter",
+        "image" : "https://agility-event.firebaseapp.com/PMM%20Attendees/Steve-Dichter-2a.jpg",
+        "sessionId" : 1,
+        "sessionName" : "Overview (1.0 hrs)",
+        "sessionPresenter" : "Steve D"
+      },
+      "session_2" : {
+        "email" : "smeszaros",
+        "sessionId" : 2,
+        "sessionName" : "QM (0.75 hrs)",
+        "sessionPresenter" : "Steve M"
+      },
+       "session_3" : {
+        "email" : "jlang",
+        "sessionId" : 3,
+        "sessionName" : "QM Impl. (0.25 hrs)",
+        "sessionPresenter" : "Jean Pierre L"
+      },
+       "session_4" : {
+        "email" : "bkewalram",
+        "sessionId" : 4,
+        "sessionName" : "NPC/RMG (0.5 hrs)",
+        "sessionPresenter" : "Biju K/Sven W"
+      },
+       "session_5" : {
+        "email" : "mkatt",
+        "sessionId" : 5,
+        "sessionName" : "OF (1.0 hrs)",
+        "sessionPresenter" : "Malte K/James B"
+      },
+      "session_6" : {
+        "email" : "tashah",
+        "sessionId" : 6,
+        "sessionName" : "AF (1.0 hrs)",
+        "sessionPresenter" : "Tapan S/Tomi H"
+      },
+       "session_7" : {
+        "email" : "jlang",
+        "sessionId" : 7,
+        "sessionName" : "User Engagement (0.25 hrs)",
+        "sessionPresenter" : "Jean Pierre L"
+      },
+       "session_8" : {
+        "email" : "dgoebel",
+        "sessionId" : 8,
+        "sessionName" : "JA (1.0 hrs)",
+        "sessionPresenter" : "Daria G"
+      },
+      "session_9" : {
+        "email" : "jlang",
+        "sessionId" : 9,
+        "sessionName" : "Implementation (0.5 hrs)",
+        "sessionPresenter" : "Jean Pierre L"
+      }
+    }
+  },
+  "event_2" : {
+    "eventDay" : "Thursday December 14th",
+    "eventId" : 2,
+    "eventSession" : {
+      "session_1" : {
+        "email" : "bkewalram",
+        "sessionId" : 1,
+        "sessionName" : "ShipA & Learnings (2.0 hrs)( a. Product, b. Demo customer facing,c. Demo back-end support, d. Impact ShipA on FOCiS ",
+        "sessionPresenter" : "a. Biju K,b. Biju K,c. Girish D,d. Girish D"
+      },
+      "session_2" : {
+        "email" : "sdichter",
+        "sessionId" : 2,
+        "sessionName" : "Compliance Engine (0.5 hrs)",
+        "sessionPresenter" : "Steve D/Girish D"
+      },
+      "session_3" : {
+        "email" : "bthakrar",
+        "sessionId" : 3,
+        "sessionName" : "MDM (0.75 hrs)",
+        "sessionPresenter" : "Bhavesh T"
+      },
+       "session_4" : {
+        "email" : "smalhi",
+        "sessionId" : 4,
+        "sessionName" : "GSSC (0.5 hrs)",
+        "sessionPresenter" : "Sid M/B Vijaya"
+      },
+       "session_5" : {
+        "email" : "vkulshreshtha",
+        "sessionId" : 5,
+        "sessionName" : "OpsX (1.0 hrs)",
+        "sessionPresenter" : "Varun K/Armin T"
+      },
+      "session_6" : {
+        "email" : "bkewalram",
+        "sessionId" : 6,
+        "sessionName" : "Agile Evolution & Cert. (2.0 hrs)",
+        "sessionPresenter" : "Biju K"
+      }
+    }
+  },
+  "event_3" : {
+    "eventDay" : "Friday December 15th",
+    "eventId" : 3,
+    "eventSession" : {
+      "session_1" : {
+        "email" : "bkewalram",
+        "sessionId" : 1,
+        "sessionName" : "TBD",
+        "sessionPresenter" : " "
+      }
+     
+    }
+  }
+}
