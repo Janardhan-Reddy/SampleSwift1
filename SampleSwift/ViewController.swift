@@ -85,7 +85,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        let cell:UITableViewCell = self.tblNames.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
+        let cell:UITableViewCell = (self.tblNames.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
         
         // set the text from the data model
         cell.textLabel?.text = arrNames.object(at: indexPath.row) as? String;

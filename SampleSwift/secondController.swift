@@ -8,7 +8,7 @@
 
 import UIKit
 
-class secondController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate
+class secondController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,URLSessionDelegate
 {
 
     
@@ -39,9 +39,21 @@ class secondController: UIViewController,UICollectionViewDataSource,UICollection
         let name = arrImages.object(at: i)
       
         Profileimg.image=UIImage(named:name as! String );
-        
-        
-    
+        self.parseJSON();
+//     //   https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22
+//        let request = URLRequest(url: URL(string: "https://samples.openweathermap.org/data/2.5/weather?q=London&appid=b6907d289e10d714a6e88b30761fae22")!)
+//        //request.httpMethod = "GET"
+//
+//        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
+//            do {
+//                let jsonDecoder = JSONDecoder()
+//                print(data ?? "nil");
+//              let responseModel = try jsonDecoder.decode(GroceryProduct.self, from: data!)
+//                print(responseModel)
+//            } catch {
+//                print("JSON Serialization error")
+//            }
+//        }).resume()
        
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -52,9 +64,56 @@ class secondController: UIViewController,UICollectionViewDataSource,UICollection
         myCollectionView.dataSource = self
         myCollectionView.delegate = self
         myCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "MyCell")
-        myCollectionView.backgroundColor = UIColor.white;        self.view.addSubview(myCollectionView)
+        myCollectionView.backgroundColor = UIColor.white;        //self.view.addSubview(myCollectionView)
     }
+    func parseJSON()
+    {
     
+
+        let sessionConfiguration = URLSessionConfiguration.default
+        let urlsession = URLSession.init(configuration: sessionConfiguration, delegate: self, delegateQueue: nil)
+        
+        
+        let url = URL(string:"https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b6907d289e10d714a6e88b30761fae22")
+        
+        let task = urlsession.dataTask(with: url!) {(data, response, error) in
+          
+            guard error == nil else {
+                print("returning error")
+                return
+            }
+            
+            guard let content = data else {
+                print("not returning data")
+                return
+            }
+            guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                print("Not containing JSON")
+                return
+            }
+            
+            guard let jsonResult = try? JSONDecoder().decode(GroceryProduct.self, from: data!) else{
+                return
+            }
+            print(jsonResult)
+          
+//print(json);
+            if let array = json["username"] {
+           //     print("array:",array)
+            }
+            if let array1 = json["address"]  as? [String:Any] {
+                print("array1:",array1["geo"]!)
+                if let geoArray = array1["geo"] as?[String:Any]{
+                    print("geoArray:", geoArray["lat"]!)
+                     print("geoArray:", geoArray["lng"]!)
+                }
+            }
+           
+        }
+        
+        task.resume()
+        
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 100
     }
@@ -65,11 +124,19 @@ class secondController: UIViewController,UICollectionViewDataSource,UICollection
         return myCell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
         print("User tapped on item \(indexPath.row)")
     }
-    
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodClientCertificate) {
+            completionHandler(.rejectProtectionSpace, nil)
+        }
+        if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
+            let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+            completionHandler(.useCredential, credential)
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -77,9 +144,22 @@ class secondController: UIViewController,UICollectionViewDataSource,UICollection
     }
     
 }
-
-   
+struct GroceryProduct: Codable {
+    var address: [address]
+    var name:String?
+    var  username:String?
+    var email:String?
     
+}
+struct address: Codable {
+    let geo:[geo]
+   
+}
+struct  geo:Codable {
+    var lat:String?
+    var lng :String?
+    
+}
     
    
     /*

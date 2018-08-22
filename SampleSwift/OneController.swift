@@ -25,6 +25,8 @@ class OneController: UIViewController,UIAlertViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        txtUName.text? = "abcd"
+        txtPassword.text? = "abcd"
     }
     
     override func didReceiveMemoryWarning() {
